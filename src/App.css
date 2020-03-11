@@ -1,38 +1,167 @@
+html {
+  height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body,
+#root,
 .App {
-  text-align: center;
+  height: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App {
+  display: flex;
+  align-items: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+button {
+  background-color: #3c5898;
+  color: white;
+  font-weight: bold;
+  border-radius: 4px;
+  border: 0;
+  padding: 8px;
+  cursor: pointer;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.App {
+  display: grid;
+  grid-template-rows: 10% 80% 10%;
+}
+
+#wrapper {
+  border: 2px solid navy;
+  height: 100%;
+  width: calc(100% - 16px);
+  margin: 0px 8px;
+  overflow: scroll;
+}
+
+.card {
+  margin: 8px;
+  display: grid;
+  grid-template-rows: 1fr 7fr 2fr;
+  border: 1px solid black;
+}
+
+.card > footer {
+  border-top: solid 1px gray;
+}
+
+.card > section {
+  display: flex;
+  justify-content: space-between;
+}
+
+#house,
+#summary,
+#status {
+  display: flex;
+  align-items: center;
+  padding: 4px;
+}
+
+#summary img {
+  object-fit: cover;
+}
+
+#summary-mid,
+#summary-start,
+#summary-end {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+#summary-start > div:first-child,
+#summary-end > div:first-child {
+  font-weight: bold;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.details {
+  margin: 8px 24px;
+}
+
+.details > header {
+  background-color: rgb(236, 236, 236);
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid rgb(221, 221, 11);
+}
+
+.details > header > span > a {
+  color: black;
+  text-decoration: none;
+}
+
+.details > section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, auto);
+  border: 1px solid rgb(221, 221, 11);
+  padding: 8px;
+}
+
+#other {
+  grid-row: 1 / 4;
+  grid-column: 2/3;
+}
+
+.roomtype > div {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+.roomtype > header {
+  border: 1px solid black;
+  padding: 8px;
+  width: 50%;
+}
+
+.customFTH {
+  border: 1px solid black;
+  padding: 4px;
+}
+
+.roomtype > div > div {
+  min-width: 50px;
+  padding: 8px;
+  margin: 4px;
+  background-color: rgb(236, 236, 236);
+  border: 1px solid black;
+}
+
+.roomtype > div > div > p {
+  margin: 2px 0;
+  text-align: center;
+}
+
+.details > footer > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.details > footer > * {
+  margin: 32px 0;
+}
+
+#collapseWrap {
+  display: flex;
+  justify-content: center;
+}
+
+#collapseWrap > button {
+  width: 50%;
+}
+
+.highlightDetail {
+  padding: 6px;
+  border: 1px solid green;
 }

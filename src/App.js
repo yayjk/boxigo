@@ -1,24 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import "normalize.css";
+import "./App.css";
+import Collapsible from "./components/collapsibleCard";
 
 function App() {
+  const [data, setData] = useState({});
+
+  useEffect(() => {
+    getAllData().then(data => setData(data.Customer_Estimate_Flow));
+  }, []);
+
+  const getAllData = async () => {
+    let response = await fetch("http://boxigo.in/sampleAPI.php");
+    return await response.json();
+  };
+
+  const jsx = [];
+
+  for (var i = 0; i < data.length; i++) {
+    jsx.push(<Collapsible key={i} id={i} {...data[i]} />);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        <h1 style={{ textAlign: "center" }}>Boxigo Assignment</h1>
       </header>
+      <section id="wrapper">{jsx}</section>
+      <footer>
+        <h3 style={{ textAlign: "center" }}>By Jaskaran Singh</h3>
+      </footer>
     </div>
   );
 }
